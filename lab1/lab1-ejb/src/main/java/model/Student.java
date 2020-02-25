@@ -56,7 +56,7 @@ public class Student {
     }
 
     public void addCourse(String course){
-
+        courses.add(course);
     }
 
     @Override
