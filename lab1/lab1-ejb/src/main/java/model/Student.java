@@ -14,6 +14,15 @@ public class Student {
     private String album;
     private List<String> courses;
 
+    public Student(){}
+
+    public Student(String firstName, String lastName, String album, List<String> courses) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.album = album;
+        this.courses = courses;
+    }
+
     public Student(String firstName, String lastName, String album) {
         this.firstName = firstName;
         this.lastName = lastName;

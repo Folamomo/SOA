@@ -24,7 +24,7 @@ public class HelloWorld {
         return "Hello, " + name;
     }
 
-
+    @WebMethod
     public Student getStudent(@WebParam(name = "album") String album){
         LOGGER.info("getStudent invoked with " + album);
 
