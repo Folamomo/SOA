@@ -20,12 +20,12 @@
    <modelVersion>4.0.0</modelVersion>
 
    <parent>
-      <artifactId>lab1</artifactId>
+      <artifactId>inoga-zad1-parent</artifactId>
       <groupId>pl.edu.agh.soa.lab1</groupId>
       <version>1.0</version>
    </parent>
 
-   <artifactId>lab1-web</artifactId>
+   <artifactId>inoga-zad1-web</artifactId>
    <packaging>war</packaging>
 
    <name>lab1: WAR Module</name>
@@ -44,7 +44,7 @@
       <!-- Dependency on the EJB module so we can use it's services if needed -->
       <dependency>
          <groupId>pl.edu.agh.soa.lab1</groupId>
-         <artifactId>lab1-ejb</artifactId>
+         <artifactId>soap-api</artifactId>
          <type>ejb</type>
          <scope>provided</scope>
       </dependency>

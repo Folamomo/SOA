@@ -17,10 +17,10 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <name>lab1</name>
+    <name>inoga-zad1</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>pl.edu.agh.soa.lab1</groupId>
-    <artifactId>lab1</artifactId>
+    <artifactId>inoga-zad1-parent</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
@@ -33,10 +33,10 @@
         </license>
     </licenses>
     <modules>
-        <module>lab1-ejb</module>
-        <module>lab1-connector</module>		
-        <module>lab1-web</module>
-        <module>lab1-ear</module>
+        <module>soap-api</module>
+        <module>soap-connector</module>
+        <module>inoga-zad1-web</module>
+        <module>inoga-zad1-ear</module>
     </modules>
 
     <properties>
@@ -74,14 +74,14 @@
                 to repeat ourselves in every module -->
             <dependency>
                 <groupId>pl.edu.agh.soa.lab1</groupId>
-                <artifactId>lab1-ejb</artifactId>
+                <artifactId>soap-api</artifactId>
                 <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
             
             <dependency>
                 <groupId>pl.edu.agh.soa.lab1</groupId>
-                <artifactId>lab1-connector</artifactId>
+                <artifactId>soap-connector</artifactId>
                 <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>			
@@ -90,7 +90,7 @@
                 ourselves in every module -->
             <dependency>
                 <groupId>pl.edu.agh.soa.lab1</groupId>
-                <artifactId>lab1-web</artifactId>
+                <artifactId>inoga-zad1-web</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
                 <scope>compile</scope>

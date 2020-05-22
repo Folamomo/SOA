@@ -20,12 +20,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>lab1</artifactId>
+        <artifactId>inoga-zad1-parent</artifactId>
         <groupId>pl.edu.agh.soa.lab1</groupId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>lab1-ear</artifactId>
+    <artifactId>inoga-zad1</artifactId>
     <packaging>ear</packaging>
 
     <name>lab1: EAR Module</name>
@@ -44,12 +44,12 @@
         <!-- Depend on the ejb module and war so that we can package them -->
         <dependency>
             <groupId>pl.edu.agh.soa.lab1</groupId>
-            <artifactId>lab1-web</artifactId>
+            <artifactId>inoga-zad1-web</artifactId>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>pl.edu.agh.soa.lab1</groupId>
-            <artifactId>lab1-ejb</artifactId>
+            <artifactId>soap-api</artifactId>
             <type>ejb</type>
             <!-- Dodana sekcja ze względu na błąd w build EAR - konflikt w zależnościach -->
             <exclusions>
@@ -66,7 +66,7 @@
         </dependency>
         <dependency>
             <groupId>pl.edu.agh.soa.lab1</groupId>
-            <artifactId>lab1-connector</artifactId>
+            <artifactId>soap-connector</artifactId>
             <type>ejb</type>
         </dependency>
 
