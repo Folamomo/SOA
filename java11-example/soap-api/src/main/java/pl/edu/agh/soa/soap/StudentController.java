@@ -3,7 +3,7 @@ package pl.edu.agh.soa.soap;
 import org.jboss.annotation.security.SecurityDomain;
 import org.jboss.ws.api.annotation.WebContext;
 import pl.edu.agh.soa.soap.exceptions.StudentNotFoundException;
-import pl.edu.agh.soa.soap.model.Student;
+import pl.edu.agh.soa.model.Student;
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
@@ -13,7 +13,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import java.util.function.Predicate;
+import java.util.Collection;
 
 @Stateless
 //@WebService(wsdlLocation = "/soap-api/StudentController?wsdl")
@@ -39,15 +39,8 @@ public class StudentController {
     public Student[] getAllBy(@WebParam(name = "firstName") String firstName,
                                   @WebParam(name = "lastName") String lastName,
                                   @WebParam(name = "album") String album){
-
-        Predicate<Student> matches = student ->
-                (firstName.equals("") || firstName.equals(student.getFirstName())) &&
-                (lastName.equals("") || lastName.equals(student.getLastName())) &&
-                (album.equals("") || album.equals(student.getAlbum()));
-
-        return  studentRepository.getAll().stream()
-                .filter(matches)
-                .toArray(Student[]::new);
+        Collection<Student> found = studentRepository.findAllBy(firstName, lastName, album);
+        return found.toArray(new Student[found.size()]);
     }
 
     @WebMethod

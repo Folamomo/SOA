@@ -35,8 +35,9 @@
     <modules>
         <module>soap-api</module>
         <module>soap-connector</module>
-        <module>inoga-zad1-web</module>
+        <module>rest-api</module>
         <module>inoga-zad1-ear</module>
+        <module>inoga-zad2-model</module>
     </modules>
 
     <properties>
@@ -90,7 +91,7 @@
                 ourselves in every module -->
             <dependency>
                 <groupId>pl.edu.agh.soa.lab1</groupId>
-                <artifactId>inoga-zad1-web</artifactId>
+                <artifactId>rest-api</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
                 <scope>compile</scope>
