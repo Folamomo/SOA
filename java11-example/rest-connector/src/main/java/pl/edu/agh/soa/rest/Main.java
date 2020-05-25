@@ -9,6 +9,8 @@ public class Main {
         try(StudentRestConsumer consumer = new StudentRestConsumer()){
             Collection<Student> students = consumer.getAll();
             students.forEach(System.out::println);
+            consumer.setAvatar("1");
+            consumer.getAvatar("1", "rest.png");
         } catch (Exception e) {
             e.printStackTrace();
         }
