@@ -38,7 +38,6 @@
          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
       </license>
    </licenses>
-
    <dependencies>
 
       <!-- Dependency on the EJB module so we can use it's services if needed -->
@@ -62,6 +61,7 @@
          <artifactId>cdi-api</artifactId>
          <scope>provided</scope>
       </dependency>
+
       
       <!-- Import the JSF API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
@@ -101,7 +101,11 @@
          <artifactId>swagger-jaxrs</artifactId>
          <version>1.6.1</version>
       </dependency>
-
+      <dependency>
+         <groupId>org.eclipse.microprofile.jwt</groupId>
+         <artifactId>microprofile-jwt-auth-api</artifactId>
+         <version>1.1</version>
+      </dependency>
    </dependencies>
 
    <build>

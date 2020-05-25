@@ -1,24 +1,34 @@
 package pl.edu.agh.soa.rest;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
+import org.eclipse.microprofile.jwt.Claim;
+import org.eclipse.microprofile.jwt.Claims;
 import pl.edu.agh.soa.model.Student;
 import pl.edu.agh.soa.soap.StudentRepository;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 @ApplicationScoped
 @Path("/Student")
 @Api(value = "StudentRESTController")
 public class StudentRESTController {
     private StudentRepository studentRepository = new StudentRepository();
+
+    @Inject
+    @Claim(standard = Claims.groups)
+    private Set<String> groups;
+
+    @Inject
+    @Claim(standard = Claims.sub)
+    private String subject;
 
     @GET
     @Path("/all")
@@ -99,6 +109,7 @@ public class StudentRESTController {
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation("Set avatar for student")
     @ApiResponses({@ApiResponse(code=200, message="Success"), @ApiResponse(code =404, message="No student found")})
+    @RolesAllowed("user")
     public Response setAvatar(@PathParam("album") String album, @QueryParam("base64Image") String base64){
         Optional<Student> student = studentRepository.getByAlbum(album);
         if (student.isPresent()) {
@@ -119,6 +130,7 @@ public class StudentRESTController {
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation("Add or edit student")
     @ApiResponses({@ApiResponse(code=201, message="Created")})
+    @RolesAllowed("user")
     public Response putStudent(@PathParam("album") String album,
                                @QueryParam("firstName") String firstName,
                                @QueryParam("lastName") String lastName){
