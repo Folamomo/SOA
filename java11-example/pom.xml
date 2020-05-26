@@ -39,6 +39,8 @@
         <module>inoga-zad1-ear</module>
         <module>inoga-zad2-model</module>
         <module>rest-connector</module>
+        <module>inoga-jpa</module>
+        <module>inoga-dao</module>
     </modules>
 
     <properties>

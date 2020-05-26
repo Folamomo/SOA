@@ -3,10 +3,12 @@ package pl.edu.agh.soa.rest;
 import io.swagger.annotations.*;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.Claims;
+import pl.edu.agh.soa.jpa.StudentDAO;
 import pl.edu.agh.soa.model.Student;
 import pl.edu.agh.soa.soap.StudentRepository;
 
 import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -20,7 +22,9 @@ import java.util.Set;
 @Path("/Student")
 @Api(value = "StudentRESTController")
 public class StudentRESTController {
-    private StudentRepository studentRepository = new StudentRepository();
+    @EJB
+    StudentDAO studentDAO = new StudentDAO();
+    StudentRepository studentRepository;
 
     @Inject
     @Claim(standard = Claims.groups)
@@ -36,7 +40,7 @@ public class StudentRESTController {
     @ApiOperation(value = "Gets all students")
     @ApiResponses({@ApiResponse(code=200, message="Success")})
     public Response getAllStudents(){
-        Collection<Student> students = studentRepository.getAll();
+        Collection<Student> students = studentDAO.getAll();
         return Response
                 .ok()
                 .entity(students)
@@ -49,7 +53,7 @@ public class StudentRESTController {
     @ApiOperation(value = "Gets student by album")
     @ApiResponses({@ApiResponse(code=200, message="Success"), @ApiResponse(code =404, message="No student found")})
     public Response getByAlbum(@PathParam("album") String album){
-        Optional<Student> student = studentRepository.getByAlbum(album);
+        Optional<Student> student = studentDAO.getByAlbum(album);
         if (student.isPresent()) {
             return Response
                     .ok()
@@ -68,7 +72,7 @@ public class StudentRESTController {
     @ApiOperation(value = "Gets student by album")
     @ApiResponses({@ApiResponse(code=200, message="Success"), @ApiResponse(code =404, message="No student found")})
     public Response getAvatarByAlbum(@PathParam("album") String album){
-        Optional<Student> student = studentRepository.getByAlbum(album);
+        Optional<Student> student = studentDAO.getByAlbum(album);
         if (student.isPresent()) {
             String avatar = student.get().getAvatar();
             System.out.println(avatar);
@@ -109,12 +113,11 @@ public class StudentRESTController {
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation("Set avatar for student")
     @ApiResponses({@ApiResponse(code=200, message="Success"), @ApiResponse(code =404, message="No student found")})
-    @RolesAllowed("user")
     public Response setAvatar(@PathParam("album") String album, @QueryParam("base64Image") String base64){
-        Optional<Student> student = studentRepository.getByAlbum(album);
+        Optional<Student> student = studentDAO.getByAlbum(album);
         if (student.isPresent()) {
             student.get().setAvatar(base64);
-            studentRepository.save(student.get());
+            studentDAO.save(student.get());
             return Response
                     .ok()
                     .build();
@@ -130,14 +133,14 @@ public class StudentRESTController {
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation("Add or edit student")
     @ApiResponses({@ApiResponse(code=201, message="Created")})
-    @RolesAllowed("user")
     public Response putStudent(@PathParam("album") String album,
                                @QueryParam("firstName") String firstName,
                                @QueryParam("lastName") String lastName){
-        Student student = studentRepository.getByAlbum(album).orElse(new Student());
+        Student student = new Student();
+        student.setAlbum(album);
         student.setFirstName(firstName);
         student.setLastName(lastName);
-        studentRepository.save(student);
+        studentDAO.save(student);
         return Response
                 .ok()
                 .status(Response.Status.CREATED)
