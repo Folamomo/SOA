@@ -2,6 +2,7 @@ package pl.edu.agh.soa.jpa;
 
 import pl.edu.agh.soa.model.Student;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Stateless
+@LocalBean
 public class StudentDAO {
     @PersistenceContext(unitName = "Student")
     EntityManager entityManager;

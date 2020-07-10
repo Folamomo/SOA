@@ -1,0 +1,62 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="lab1-ear:ear exploded">
+    <output-path>$PROJECT_DIR$/lab1-ear/target/lab1-ear</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>lab1-ear</module>
+        <packaging>ear</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ear/target/lab1-ear/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/ear/src/main/application" />
+      <element id="archive" name="lab1-web.war">
+        <element id="artifact" artifact-name="lab1-web:war exploded" />
+      </element>
+      <element id="archive" name="lab1-ejb.jar">
+        <element id="artifact" artifact-name="lab1-ejb:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.2.8/jaxb-api-2.2.8.jar" output-file-name="jaxb-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-core/2.3.0/jaxb-core-2.3.0.jar" output-file-name="jaxb-core.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-impl/2.3.2/jaxb-impl-2.3.2.jar" output-file-name="jaxb-impl.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/org/apache/xml/internal/resolver/20050927/resolver-20050927.jar" output-file-name="resolver.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/ws/jaxws-rt/2.3.0/jaxws-rt-2.3.0.jar" output-file-name="jaxws-rt.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/ws/policy/2.7.2/policy-2.7.2.jar" output-file-name="policy.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/glassfish/gmbal/gmbal-api-only/3.1.0-b001/gmbal-api-only-3.1.0-b001.jar" output-file-name="gmbal-api-only.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/glassfish/external/management-api/3.0.0-b012/management-api-3.0.0-b012.jar" output-file-name="management-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.7.8/stax-ex-1.7.8.jar" output-file-name="stax-ex.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/stream/buffer/streambuffer/1.5.4/streambuffer-1.5.4.jar" output-file-name="streambuffer.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jvnet/mimepull/mimepull/1.9.7/mimepull-1.9.7.jar" output-file-name="mimepull.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.13/FastInfoset-1.2.13.jar" output-file-name="FastInfoset.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/glassfish/ha/ha-api/3.1.9/ha-api-3.1.9.jar" output-file-name="ha-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/messaging/saaj/saaj-impl/1.4.0/saaj-impl-1.4.0.jar" output-file-name="saaj-impl.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar" output-file-name="woodstox-core-asl.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar" output-file-name="stax2-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/ws/jaxws-tools/2.3.0/jaxws-tools-2.3.0.jar" output-file-name="jaxws-tools.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-xjc/2.3.0/jaxb-xjc-2.3.0.jar" output-file-name="jaxb-xjc.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-jxc/2.3.0/jaxb-jxc-2.3.0.jar" output-file-name="jaxb-jxc.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/ws/jaxws-eclipselink-plugin/2.3.0/jaxws-eclipselink-plugin-2.3.0.jar" output-file-name="jaxws-eclipselink-plugin.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7.jar" output-file-name="mail.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/persistence/eclipselink/2.6.4/eclipselink-2.6.4.jar" output-file-name="eclipselink.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/persistence/javax.persistence/2.1.1/javax.persistence-2.1.1.jar" output-file-name="javax.persistence.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/persistence/commonj.sdo/2.1.1/commonj.sdo-2.1.1.jar" output-file-name="org.eclipse.persistence-commonj.sdo.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar" output-file-name="validation-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar" output-file-name="javax.json.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sun/xml/ws/sdo-eclipselink-plugin/2.3.0/sdo-eclipselink-plugin-2.3.0.jar" output-file-name="sdo-eclipselink-plugin.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/commonj/sdo/commonj.sdo/2.1.1.v201112051852/commonj.sdo-2.1.1.v201112051852.jar" output-file-name="commonj.sdo-commonj.sdo.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/xml/ws/jaxws-api/2.3.0/jaxws-api-2.3.0.jar" output-file-name="jaxws-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/xml/soap/javax.xml.soap-api/1.4.0/javax.xml.soap-api-1.4.0.jar" output-file-name="javax.xml.soap-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/jws/jsr181-api/1.0-MR1/jsr181-api-1.0-MR1.jar" output-file-name="jsr181-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.3.1/javax.annotation-api-1.3.1.jar" output-file-name="javax.annotation-api.jar" />
+      </element>
+      <element id="archive" name="lab1-connector.jar">
+        <element id="artifact" artifact-name="lab1-connector:ejb exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>

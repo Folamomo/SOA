@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="lab1-connector:ejb">
+    <output-path>$PROJECT_DIR$/lab1-connector/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>lab1-connector</module>
+        <packaging>ejb</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="lab1-connector.jar">
+      <element id="artifact" artifact-name="lab1-connector:ejb exploded" />
+    </root>
+  </artifact>
+</component>

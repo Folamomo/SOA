@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="lab1-connector:ejb exploded">
+    <output-path>$PROJECT_DIR$/lab1-connector/target/lab1-connector</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>lab1-connector</module>
+        <packaging>ejb</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="lab1-connector/ejb/EJB" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/lab1-connector/target/lab1-connector/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="lab1-connector" />
+    </root>
+  </artifact>
+</component>

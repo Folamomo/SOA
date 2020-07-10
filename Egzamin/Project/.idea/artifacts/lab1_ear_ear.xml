@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="lab1-ear:ear">
+    <output-path>$PROJECT_DIR$/lab1-ear/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>lab1-ear</module>
+        <packaging>ear</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="lab1-ear.ear">
+      <element id="artifact" artifact-name="lab1-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>
